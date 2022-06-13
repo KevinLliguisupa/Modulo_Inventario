@@ -4,6 +4,7 @@ CREATE SEQUENCE public.categoria_cat_id_seq;
 CREATE TABLE public.categoria (
                 cat_id INTEGER NOT NULL DEFAULT nextval('public.categoria_cat_id_seq'),
                 cat_nombre VARCHAR NOT NULL,
+                cat_estado BOOLEAN NOT NULL,
                 CONSTRAINT categoria_pk PRIMARY KEY (cat_id)
 );
 
@@ -17,6 +18,7 @@ CREATE TABLE public.ajuste (
                 aju_numero VARCHAR NOT NULL,
                 aju_fecha DATE NOT NULL,
                 aju_descripcion VARCHAR NOT NULL,
+                aju_estado BOOLEAN NOT NULL,
                 CONSTRAINT ajuste_pk PRIMARY KEY (aju_id)
 );
 
@@ -49,6 +51,8 @@ CREATE TABLE public.ajuste_detalle (
                 aju_id INTEGER NOT NULL,
                 pro_id INTEGER NOT NULL,
                 aju_det_cantidad NUMERIC(7) NOT NULL,
+                aju_det_modificable BOOLEAN NOT NULL,
+                aju_det_estado BOOLEAN NOT NULL,
                 CONSTRAINT ajuste_detalle_pk PRIMARY KEY (aju_det_id)
 );
 

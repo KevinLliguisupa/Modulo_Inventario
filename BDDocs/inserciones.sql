@@ -1,14 +1,14 @@
 --Categorias
-insert into categoria (cat_nombre) values ('Frutas');
-insert into categoria (cat_nombre) values ('Jugos');
-insert into categoria (cat_nombre) values ('Lacteos');
-insert into categoria (cat_nombre) values ('Bebidas alcoholicas');
-insert into categoria (cat_nombre) values ('Helados');
-insert into categoria (cat_nombre) values ('Verduras');
-insert into categoria (cat_nombre) values ('Aceites');
-insert into categoria (cat_nombre) values ('Cholotales');
-insert into categoria (cat_nombre) values ('Snacks');
-insert into categoria (cat_nombre) values ('Fideos');
+insert into categoria (cat_nombre, cat_estado) values ('Frutas', true);
+insert into categoria (cat_nombre, cat_estado) values ('Jugos', true);
+insert into categoria (cat_nombre, cat_estado) values ('Lacteos', true);
+insert into categoria (cat_nombre, cat_estado) values ('Bebidas alcoholicas', true);
+insert into categoria (cat_nombre, cat_estado) values ('Helados', true);
+insert into categoria (cat_nombre, cat_estado) values ('Verduras', true);
+insert into categoria (cat_nombre, cat_estado) values ('Aceites', true);
+insert into categoria (cat_nombre, cat_estado) values ('Cholotales', true);
+insert into categoria (cat_nombre, cat_estado) values ('Snacks', true);
+insert into categoria (cat_nombre, cat_estado) values ('Fideos', true);
 
 
 --Productos
@@ -35,26 +35,26 @@ insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, p
 
 
 --ajuste
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00001', '1/31/2022', 'Etiam faucibus cursus urna.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00002', '1/19/2022', 'Morbi porttitor lorem id ligula.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00003', '5/8/2022', 'Aenean auctor gravida sem.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00004', '4/7/2022', 'Curabitur in libero ut massa volutpat convallis.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00005', '1/9/2022', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00006', '6/10/2022', 'Nulla suscipit ligula in lacus.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00007', '6/3/2022', 'Sed ante.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00008', '3/5/2022', 'Vestibulum sed magna at nunc commodo placerat.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00010', '2/13/2022', 'Duis mattis egestas metus.');
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion) values ('AJUS-00011', '1/22/2022', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.');
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00001', '1/31/2022', 'Etiam faucibus cursus urna.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00002', '1/19/2022', 'Morbi porttitor lorem id ligula.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00003', '5/8/2022', 'Aenean auctor gravida sem.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00004', '4/7/2022', 'Curabitur in libero ut massa volutpat convallis.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00005', '1/9/2022', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00006', '6/10/2022', 'Nulla suscipit ligula in lacus.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00007', '6/3/2022', 'Sed ante.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00008', '3/5/2022', 'Vestibulum sed magna at nunc commodo placerat.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00010', '2/13/2022', 'Duis mattis egestas metus.', true);
+insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00011', '1/22/2022', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', true);
 
 
 --ajuste_detalle
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (8, 17, 18);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (1, 17, 8);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (10, 9, 25);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (5, 9, 22);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (8, 14, 21);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (1, 7, 6);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (4, 17, 19);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (2, 13, 8);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (1, 18, 19);
-insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad) values (9, 20, 9);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (8, 17, 18, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (1, 17, 8, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (10, 9, 25, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (5, 9, 22, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (8, 14, 21, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (1, 7, 6, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (4, 17, 19, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (2, 13, 8, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (1, 18, 19, true, true);
+insert into ajuste_detalle (aju_id, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values (9, 20, 9, true, true);
