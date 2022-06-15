@@ -1,0 +1,22 @@
+---Obtener el siguiente numero de factura
+create or replace function get_nroAjuste() returns varchar
+as
+$$
+declare
+valor integer;
+nro_aju varchar;
+begin
+valor := (select (substring(aju_numero,6,6)::Integer +1) as nro 
+		  from ajuste order by nro desc limit 1);
+if(valor is null) then
+	nro_aju := 'AJUS-00001';
+else
+	nro_aju := (select substring(concat('00000000',valor), 6,6));
+	nro_aju := concat('AJUS-',nro_aju);
+end if;
+return nro_aju;
+end;
+$$
+language plpgsql;
+
+select get_nroAjuste();
