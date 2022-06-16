@@ -24,7 +24,7 @@ const getProductosByName=async(req,res)=>{
 
 const postCreateProducto = async(req, res) =>{
     const {pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_stock, pro_imagen, pro_estado} = req.query
-    const response = await db.any(`INSERT INTO public.pizza(pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_stock, pro_imagen, pro_estado))
+    const response = await db.any(`INSERT INTO public.producto(pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_stock, pro_imagen, pro_estado)
     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9);`,[pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_stock, pro_imagen, pro_estado])
     res.json(
         {
