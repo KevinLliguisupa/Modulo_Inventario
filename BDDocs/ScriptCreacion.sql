@@ -11,19 +11,14 @@ CREATE TABLE public.categoria (
 
 ALTER SEQUENCE public.categoria_cat_id_seq OWNED BY public.categoria.cat_id;
 
-CREATE SEQUENCE public.ajuste_aju_id_seq;
-
 CREATE TABLE public.ajuste (
-                aju_id INTEGER NOT NULL DEFAULT nextval('public.ajuste_aju_id_seq'),
                 aju_numero VARCHAR NOT NULL,
                 aju_fecha DATE NOT NULL,
                 aju_descripcion VARCHAR NOT NULL,
                 aju_estado BOOLEAN NOT NULL,
-                CONSTRAINT ajuste_pk PRIMARY KEY (aju_id)
+                CONSTRAINT ajuste_pk PRIMARY KEY (aju_numero)
 );
 
-
-ALTER SEQUENCE public.ajuste_aju_id_seq OWNED BY public.ajuste.aju_id;
 
 CREATE SEQUENCE public.producto_pro_id_seq;
 
@@ -35,7 +30,6 @@ CREATE TABLE public.producto (
                 pro_iva BOOLEAN NOT NULL,
                 pro_costo NUMERIC(7,2) NOT NULL,
                 pro_pvp NUMERIC(7,2) NOT NULL,
-                pro_stock INTEGER NOT NULL,
                 pro_imagen VARCHAR NOT NULL,
                 pro_estado BOOLEAN NOT NULL,
                 CONSTRAINT producto_pk PRIMARY KEY (pro_id)
@@ -48,7 +42,7 @@ CREATE SEQUENCE public.ajuste_detalle_aju_det_id_seq;
 
 CREATE TABLE public.ajuste_detalle (
                 aju_det_id INTEGER NOT NULL DEFAULT nextval('public.ajuste_detalle_aju_det_id_seq'),
-                aju_id INTEGER NOT NULL,
+                aju_numero VARCHAR NOT NULL,
                 pro_id INTEGER NOT NULL,
                 aju_det_cantidad NUMERIC(7) NOT NULL,
                 aju_det_modificable BOOLEAN NOT NULL,
@@ -67,10 +61,10 @@ ON UPDATE CASCADE
 NOT DEFERRABLE;
 
 ALTER TABLE public.ajuste_detalle ADD CONSTRAINT ajuste_ajuste_detalle_fk
-FOREIGN KEY (aju_id)
-REFERENCES public.ajuste (aju_id)
+FOREIGN KEY (aju_numero)
+REFERENCES public.ajuste (aju_numero)
 ON DELETE NO ACTION
-ON UPDATE CASCADE
+ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE public.ajuste_detalle ADD CONSTRAINT producto_ajuste_detalle_fk
