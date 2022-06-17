@@ -8,6 +8,6 @@ router.get('/productos/pro_id/:pro_id',getProductosById)
 router.get('/productos/pro_nombre/:pro_nombre',getProductosByName)
 router.post('/productos/',postCreateProducto)
 router.put("/productos",putUpdateProducto)
-router.put('/DeleteProducto',deleteProducto)
+router.put('/deleteProducto',deleteProducto)
 
 module.exports=router

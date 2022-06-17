@@ -8,8 +8,8 @@ const getProductos = async (req,res)=>{
 
 const getProductosById=async(req,res)=>{
     const pro_id=req.params.pro_id
-    const response = await db.any(`select * from producto where
-     pro_id=$1 and pro_estado=true;`,[pro_id])
+    const response = await db.any(`select * from producto where pro_id=$1
+     and pro_estado=true;`,[pro_id])
     res.json(response)
 }
 
