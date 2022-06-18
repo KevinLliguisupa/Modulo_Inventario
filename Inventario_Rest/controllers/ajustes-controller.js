@@ -43,22 +43,16 @@ const postCreateAjuste = async (req, res) => {
  * @param {*} req Id del ajuste y un arreglo de detalles
  */
 const postCreateAjusteDetalle = async (req, res) => {
-    const { aju_id, detalles } = req.body
+    const { aju_numero, detalles } = req.body
     try {
         let detalle = []
         for (let i = 0; i < detalles.length; i++) {
-            const response = await db.one(`INSERT INTO public.ajuste_detalle(aju_id, pro_id, aju_det_cantidad, 
+            const response = await db.one(`INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, 
                 aju_det_modificable, aju_det_estado) VALUES ($1, $2, $3, true, true) returning*;`,
-                [aju_id, detalles[i].pro_id, detalles[i].aju_det_cantidad])
-
-            //Actualizacion stock del producto
-            const stockActual = await db.one(`SELECT pro_stock FROM producto WHERE pro_id=$1;`, [detalles[i].pro_id])
-            await db.none(`UPDATE producto SET pro_stock=$2 WHERE pro_id=$1;`,
-                [detalles[i].pro_id, stockActual.pro_stock + (detalles[i].aju_det_cantidad)])
-
+                [aju_numero, detalles[i].pro_id, detalles[i].aju_det_cantidad])
             detalle.push(response)
         }
-        res.json({ ajuste: aju_id, detalle: detalle })
+        res.json({ ajuste: aju_numero, detalle: detalle })
     } catch (error) {
         console.log(error)
         res.json({
@@ -81,14 +75,9 @@ const postCreateAjustecompleto = async (req, res) => {
         //Insercion del detalle
         let detalle = []
         for (let i = 0; i < detalles.length; i++) {
-            const response = await db.one(`INSERT INTO public.ajuste_detalle(aju_id, pro_id, aju_det_cantidad, 
+            const response = await db.one(`INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, 
                 aju_det_modificable, aju_det_estado) VALUES ($1, $2, $3, true, true) returning*;`,
-                [ajuste.aju_id, detalles[i].pro_id, detalles[i].aju_det_cantidad])
-
-            //Actualizacion stock de porducto
-            const stockActual = await db.one(`SELECT pro_stock FROM producto WHERE pro_id=$1;`, [detalles[i].pro_id])
-            await db.none(`UPDATE producto SET pro_stock=$2 WHERE pro_id=$1;`,
-                [detalles[i].pro_id, stockActual.pro_stock + (detalles[i].aju_det_cantidad)])
+                [ajuste.aju_numero, detalles[i].pro_id, detalles[i].aju_det_cantidad])
                 
             detalle.push(response)
         }
