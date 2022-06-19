@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-const { getCatByEstado, putUpdateCatbyId, deleteCat, createCat } = require('../controllers/categoria-controller')
+const { getCategorias, getCategoriaById, getCategoriaByName, putUpdateCat, deleteCat, postCreateCat } = require('../controllers/categoria-controller')
 const { getProductos, getProductosById, postCreateProducto,putUpdateProducto, deleteProducto, getProductosByName} = require("../controllers/productos-controller");
 const router= Router()
 
@@ -11,9 +11,11 @@ router.post('/productos/',postCreateProducto)
 router.put("/productos/",putUpdateProducto)
 router.put('/productos/delete/',deleteProducto)
 
-router.get('/getCat', getCatByEstado)
-router.put('/updateCat', putUpdateCatbyId)
-router.put('/deleteCat', deleteCat)
-router.post('/createCat', createCat)
+router.get('/categorias', getCategorias)
+router.get('/categorias/id/:cat_id', getCategoriaById)
+router.get('/categorias/nombre/:cat_nombre', getCategoriaByName)
+router.post('/categorias/', postCreateCat)
+router.put('/categorias/', putUpdateCat)
+router.put('/categorias/delete/', deleteCat)
 
 module.exports = router
