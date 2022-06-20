@@ -61,7 +61,7 @@ const getProductos = async (req, res) => {
 
             const facturas_stock = await facturasStock(productos[i].pro_id)
             if (facturas_stock != undefined)
-                total += facturas_stock
+                total -= facturas_stock
 
             productos[i].pro_stock = total
             productos[i].pro_categoria = categoria
@@ -90,7 +90,7 @@ const getProductosById = async (req, res) => {
 
         const facturas_stock = await facturasStock(response.pro_id)
         if (facturas_stock != undefined)
-            total += facturas_stock
+            total -= facturas_stock
 
         response.pro_stock = total
         response.pro_categoria = categoria
@@ -117,7 +117,7 @@ const getProductosByName = async (req, res) => {
 
         const facturas_stock = await facturasStock(response.pro_id)
         if (facturas_stock != undefined)
-            total += facturas_stock
+            total -= facturas_stock
 
         response.pro_stock = total
         response.pro_categoria = categoria

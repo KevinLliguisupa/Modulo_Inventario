@@ -6,55 +6,37 @@ insert into categoria (cat_nombre, cat_estado) values ('Bebidas alcoholicas', tr
 insert into categoria (cat_nombre, cat_estado) values ('Helados', true);
 insert into categoria (cat_nombre, cat_estado) values ('Verduras', true);
 insert into categoria (cat_nombre, cat_estado) values ('Aceites', true);
-insert into categoria (cat_nombre, cat_estado) values ('Cholotales', true);
+insert into categoria (cat_nombre, cat_estado) values ('Chocolates', true);
 insert into categoria (cat_nombre, cat_estado) values ('Snacks', true);
 insert into categoria (cat_nombre, cat_estado) values ('Fideos', true);
+insert into categoria (cat_nombre, cat_estado) values ('Embutidos', true);
+insert into categoria (cat_nombre, cat_estado) values ('Productos de aseo', true);
 
+--Producto
+INSERT INTO producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) VALUES ('Switch', 'Switch+flow es un licor ecuatoriano', 4, true, 2.40, 2.95, 'https://static.wixstatic.com/media/7030ae_8de783c8f4cc449ab8d6f297745f53ee~mv2.png/v1/fill/w_560,h_472,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Switch_productos_nuevo.png', true);
+INSERT INTO producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) VALUES ('Coca Cola', 'Bebida gaseosa 1L', 2, true, 1.00, 1.30, 'https://licoreschullavida.com/wp-content/uploads/2020/07/Coca-cola-1-litro.jpg',true);
+INSERT INTO producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) VALUES ('Mortadela Plumrose', 'Mortadela tipo II', 11, true, 0.75, 0.99, 'https://www.plumrose.com.ec/images/virtuemart/product/Mortadela%20170g.png',true);
+INSERT INTO producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) VALUES ('Pizzerolas', 'Tostitos sabor a Pizza', 9, true, 0.48, 0.60, 'https://frontline.la/wp-content/uploads/2021/05/pizzerolas45gr-e1634665906749.jpg',true);
+INSERT INTO producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) VALUES ('Uvas', 'Uvas verdes', 1, true, 2.00, 2.50, 'https://unisima.com/wp-content/uploads/2014/07/uva-verde-1.jpg',true);
+INSERT INTO producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) VALUES ('Toni Griego', 'Yogurt Toni Griego', 3, true, 1.17, 1.30, 'http://www.tonicorp.com/img/productos-2/yogurt-toni-griego/yogurt-toni-griego-natural.png',true);
+INSERT INTO producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) VALUES ('Brócoli', 'Brócoli pequeño', 6, true, 0.40, 0.75, 'https://elpoderdelconsumidor.org/wp-content/uploads/2016/11/brocoli.jpg',true);
 
---Productos
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Mcguinness - Blue Curacao', 'Mauris lacinia sapien quis libero.', 9, false, 3.03, 4.79, 'http://dummyimage.com/300x300.png/dddddd/000000', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Sauce - Mint', 'Integer aliquet, massa id lobortis convallis', 8, true, 1.94, 5.77 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Orange Roughy 6/8 Oz', 'Suspendisse potenti.', 2, false, 4.52, 0.32, 'http://dummyimage.com/300x300.png/5fa2dd/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Duck - Whole', 'Fusce congue, diam id ornare imperdiet', 5, true, 6.99, 7.88, 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Cream - 18%', 'Vestibulum rutrum rutrum neque.', 2, false, 0.34, 4.29, 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Pants Custom Dry Clean', 'Proin at turpis a pede posuere nonummy.', 4, true, 4.02, 7.11, 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Pastry - Trippleberry Muffin - Mini', 'Nullam orci pede', 9, false, 2.32, 0.58, 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Wine - White, Gewurtzraminer', 'Maecenas leo odio', 1, true, 4.91, 7.85 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Bag Clear 10 Lb', 'Donec posuere metus vitae ipsum.', 2, false, 7.0, 0.21, 'http://dummyimage.com/300x300.png/5fa2dd/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Bread - Raisin Walnut Pull', 'Curabitur convallis.', 7, true, 2.97, 2.16, 'http://dummyimage.com/300x300.png/dddddd/000000', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Octopus - Baby, Cleaned', 'Aliquam augue quam', 10, false, 4.44, 8.83, 'http://dummyimage.com/300x300.png/ff4444/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Gingerale - Diet - Schweppes', 'Donec vitae nisi.', 10, false, 3.45, 6.12, 'http://dummyimage.com/300x300.png/dddddd/000000', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Wine - Piper Heidsieck Brut', 'Integer non velit.', 6, false, 1.26, 7.64, 'http://dummyimage.com/300x300.png/ff4444/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Onion Powder', 'Nam nulla.', 10, true, 6.28, 3.53, 'http://dummyimage.com/300x300.png/dddddd/000000', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Spice - Peppercorn Melange', 'Nulla neque libero', 9, false, 5.97, 8.26, 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Snapple - Mango Maddness', 'Vivamus vel nulla eget eros elementum pellentesque.', 3, true, 7.31, 8.96 'http://dummyimage.com/300x300.png/5fa2dd/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Muffin - Mix - Mango Sour Cherry', 'Nulla facilisi.', 9, true, 2.05, 2.04, 'http://dummyimage.com/300x300.png/5fa2dd/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Container - Foam Dixie 12 Oz', 'Integer ac neque.', 7, false, 4.89, 1.19, 'http://dummyimage.com/300x300.png/ff4444/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Appetizer - Mushroom Tart', 'Integer a nibh.', 7, true, 0.8, 4.84, 'http://dummyimage.com/300x300.png/cc0000/ffffff', true);
-insert into producto (pro_nombre, pro_descripcion, cat_id, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado) values ('Wine - Zonnebloem Pinotage', 'Mauris enim leo, rhoncus sed', 7, false, 5.14, 5.3, 'http://dummyimage.com/300x300.png/dddddd/000000', true);
+--Ajuste
+INSERT INTO ajuste(aju_numero, aju_fecha, aju_descripcion, aju_estado)	VALUES ('AJUS-00001', '1/3/2022', 'Productos fuera de stock', true);
+INSERT INTO ajuste(aju_numero, aju_fecha, aju_descripcion, aju_estado)	VALUES ('AJUS-00002', '2/4/2022', 'Compra anticipada', true);
+INSERT INTO ajuste(aju_numero, aju_fecha, aju_descripcion, aju_estado)	VALUES ('AJUS-00003', '1/2/2022', 'Devolucion de producto', true);
+INSERT INTO ajuste(aju_numero, aju_fecha, aju_descripcion, aju_estado)	VALUES ('AJUS-00004', '4/6/2022', 'Garantia por caducidad', true);
+INSERT INTO ajuste(aju_numero, aju_fecha, aju_descripcion, aju_estado)	VALUES ('AJUS-00005', '5/5/2022', 'Compra anticipada', true);
+INSERT INTO ajuste(aju_numero, aju_fecha, aju_descripcion, aju_estado)	VALUES ('AJUS-00006', '3/4/2022', 'Devolucion por parte de cliente', true);
 
+--Detalle ajsute
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00001', 1, 20, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00001', 2, 18, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00002', 4, 6, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00003', 5, 10, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00003', 2, 15, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00004', 3, 9, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00005', 7, 8, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00005', 3, 12, true, true);
+INSERT INTO public.ajuste_detalle(aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) VALUES ('AJUS-00006', 6, 5, true, true);
 
---ajuste
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00001', '1/31/2022', 'Etiam faucibus cursus urna.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00002', '1/19/2022', 'Morbi porttitor lorem id ligula.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00003', '5/8/2022', 'Aenean auctor gravida sem.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00004', '4/7/2022', 'Curabitur in libero ut massa volutpat convallis.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00005', '1/9/2022', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00006', '6/10/2022', 'Nulla suscipit ligula in lacus.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00007', '6/3/2022', 'Sed ante.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00008', '3/5/2022', 'Vestibulum sed magna at nunc commodo placerat.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00009', '2/13/2022', 'Duis mattis egestas metus.', true);
-insert into ajuste (aju_numero, aju_fecha, aju_descripcion,aju_estado) values ('AJUS-00010', '1/22/2022', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', true);
-
-
---ajuste_detalle
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00001', 17, 18, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00001', 17, 8, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00001', 9, 25, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00003', 9, 22, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00005', 14, 21, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00005', 7, 6, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00007', 17, 19, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00009', 13, 8, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00010', 18, 19, true, true);
-insert into ajuste_detalle (aju_numero, pro_id, aju_det_cantidad, aju_det_modificable, aju_det_estado) values ('AJUS-00010', 20, 9, true, true);
