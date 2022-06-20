@@ -11,8 +11,14 @@ valor := (select (substring(aju_numero,6,6)::Integer +1) as nro
 if(valor is null) then
 	nro_aju := 'AJUS-00001';
 else
-	nro_aju := (select substring(concat('00000000',valor), 6,6));
-	nro_aju := concat('AJUS-',nro_aju);
+    if (valor<10) then
+        nro_aju := (select substring(concat('000000000',valor), 6,6));
+    elsif (valor>=10 and valor<100) then
+	    nro_aju := (select substring(concat('00000000',valor), 6,6));
+    else
+        nro_aju := (select substring(concat('0000000',valor), 6,6));
+    end if;
+    nro_aju := concat('AJUS-',nro_aju);
 end if;
 return nro_aju;
 end;
