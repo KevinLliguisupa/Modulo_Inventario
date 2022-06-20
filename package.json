@@ -5,15 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/index.js"
+    "start": "node ./src/index.js"
   },
   "author": "Cordova, Herrera, Lliguisupa, Solano",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
     "pg-promise": "^10.11.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.16"
   }
 }

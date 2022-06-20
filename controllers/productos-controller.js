@@ -1,6 +1,5 @@
 const { json } = require('express');
 const req = require('express/lib/request');
-const { addListener } = require('nodemon');
 const { db } = require('../config/connection')
 
 /**
