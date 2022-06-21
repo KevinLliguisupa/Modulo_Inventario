@@ -12,6 +12,6 @@ app.use(express.urlencoded({extended:true}))
 
 app.use(require('../routes/index'))
 //execution server web
-app.listen(4000)
-console.log("Server running in http://localhost:4000")
-app.get('/',(req,res)=>{res.send('Bienvenidos al servicio Rest-Api-Inventario')})
+const PORT = process.env.PORT || 4000
+app.listen(PORT)
+app.get('/',(req,res)=>{res.send('Bienvenidos al API Modulo Inventario')})
