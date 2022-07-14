@@ -1,6 +1,7 @@
 const { json } = require('express');
 const req = require('express/lib/request');
 const { db } = require('../config/connection')
+const fetch = require('node-fetch');
 
 /**
  * Calcula el stock de los ajustes realizados a un producto mediante su id
@@ -28,7 +29,7 @@ function ajustesStock(pro_id) {
 const facturasStock = async (pro_id) => {
     try {
         let suma = 0
-        const respuesta = await fetch(`https://api-facturacion-utn.herokuapp.com/facturas/search`);
+        const respuesta = await fetch('https://api-facturacion-utn.herokuapp.com/facturas/search');
         const datos = await respuesta.json()
         for (let i = 0; i < datos.length; i++) {
             for (let j = 0; j < datos[i].detalle.length; j++) {
