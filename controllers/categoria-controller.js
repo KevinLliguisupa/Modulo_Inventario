@@ -1,6 +1,16 @@
 const req = require('express/lib/request')
 const { db } = require('../config/connection')
 
+const getAllCategorias = async (req, res) => {
+    try {
+        const response = await db.any('SELECT cat_id, cat_nombre, cat_estado FROM categoria ORDER BY cat_id;')
+        res.json(response)
+    } catch (error) {
+        console.log(error.message)
+        res.json({ message: error.message })
+    }
+}
+
 const getCategorias = async (req, res) => {
     try {
         const response = await db.any('SELECT cat_id, cat_nombre FROM categoria WHERE cat_estado=true ORDER BY cat_id;')
@@ -72,6 +82,7 @@ const deleteCat = async (req, res) => {
 }
 
 module.exports = {
+    getAllCategorias,
     getCategorias,
     getCategoriaById,
     getCategoriaByName,

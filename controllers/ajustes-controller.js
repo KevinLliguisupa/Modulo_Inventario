@@ -2,6 +2,23 @@ const { response } = require('express')
 const req = require('express/lib/request')
 const { db } = require('../config/connection')
 
+const getAllAjustes = async (req, res) => {
+    try {
+        const ajustes = await db.any(`select * from ajuste order by aju_numero`);
+        let response = [];
+        for (let i = 0; i < ajustes.length; i++) {
+            let detalleAjuste = await db.any(`select daj.* from ajuste aj, ajuste_detalle daj where aj.aju_numero=daj.aju_numero and 
+                aj.aju_estado=true and daj.aju_det_estado=true and daj.aju_numero=$1`, [ajustes[i].aju_numero]);
+            ajustes[i].aju_detalle = detalleAjuste
+            response.push(ajustes[i])
+        }
+        res.json(response)
+    } catch (error) {
+        console.log(error.message)
+        res.json({ message: error.message })
+    }
+}
+
 const getAjustes = async (req, res) => {
     try {
         const ajustes = await db.any(`select * from ajuste where aju_estado=true order by aju_numero`);
@@ -175,6 +192,7 @@ const putUpdateAjuste = async (req, res) => {
 }
 
 module.exports = {
+    getAllAjustes,
     getAjustes,
     getAjusteByNum,
     getAjustesByProd,

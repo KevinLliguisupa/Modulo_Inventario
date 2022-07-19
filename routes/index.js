@@ -1,10 +1,11 @@
 const { Router } = require("express");
 
-const { getCategorias, getCategoriaById, getCategoriaByName, putUpdateCat, deleteCat, postCreateCat } = require('../controllers/categoria-controller')
-const { getProductos, getProductosById, postCreateProducto,putUpdateProducto, deleteProducto, getProductosByName} = require("../controllers/productos-controller");
-const{ getAjustes, putUpdateAjuste, getAjustesByProd, postCreateAjuste, postCreateAjustecompleto, postCreateAjusteDetalle, getAjusteNumero, getAjustesByProdId, getAjusteByNum }=require('../controllers/ajustes-controller')
+const { getCategorias, getCategoriaById, getCategoriaByName, putUpdateCat, deleteCat, postCreateCat, getAllCategorias } = require('../controllers/categoria-controller')
+const { getProductos, getProductosById, postCreateProducto,putUpdateProducto, deleteProducto, getProductosByName, getAllProductos} = require("../controllers/productos-controller");
+const{ getAjustes, putUpdateAjuste, getAjustesByProd, postCreateAjuste, postCreateAjustecompleto, postCreateAjusteDetalle, getAjusteNumero, getAjustesByProdId, getAjusteByNum, getAllAjustes }=require('../controllers/ajustes-controller')
 const router= Router()
 
+router.get('/allproductos',getAllProductos)
 router.get('/productos',getProductos)
 router.get('/productos/id/:pro_id',getProductosById)
 router.get('/productos/nombre/:pro_nombre',getProductosByName)
@@ -12,6 +13,7 @@ router.post('/productos/',postCreateProducto)
 router.put("/productos/",putUpdateProducto)
 router.put('/productos/delete/',deleteProducto)
 
+router.get('/allcategorias', getAllCategorias)
 router.get('/categorias', getCategorias)
 router.get('/categorias/id/:cat_id', getCategoriaById)
 router.get('/categorias/nombre/:cat_nombre', getCategoriaByName)
@@ -19,6 +21,7 @@ router.post('/categorias/', postCreateCat)
 router.put('/categorias/', putUpdateCat)
 router.put('/categorias/delete/', deleteCat)
 
+router.get("/allajustes",getAllAjustes)
 router.get("/ajustes",getAjustes)
 router.get("/ajustes/numero/",getAjusteNumero)
 router.get("/ajustes/numero/:aju_numero",getAjusteByNum)

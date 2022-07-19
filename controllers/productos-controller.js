@@ -44,6 +44,64 @@ const facturasStock = async (pro_id) => {
     }
 }
 
+
+/**
+ * Mediante el api del modulo facturas calcula el stock de las facturas 
+ * pertenecientes a un producto 
+ * @param {number} pro_id 
+ * @returns Suma del stock 
+ */
+const comprasStock = async (pro_id) => {
+    try {
+        let suma = 0
+        const respuesta = await fetch('https://modelo-223.herokuapp.com/detalle_compras');
+        const datos = await respuesta.json()
+        for (let i = 0; i < datos.length; i++) {
+            if (datos[i].prod_id == pro_id) {
+                suma += datos[i].dcom_cantidad
+            }
+        }
+        return suma
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const getAllProductos = async (req, res) => {
+    try {
+        let response = []
+        const productos = await db.any(`select pro_id, pro_nombre, pro_descripcion, pro_iva, pro_costo, pro_pvp, pro_imagen, pro_estado
+            from producto ORDER BY pro_id;`)
+        for (let i = 0; i < productos.length; i++) {
+            const categoria = await db.one(`select cat.cat_id, cat.cat_nombre from categoria cat, producto pro 
+                where pro.cat_id=cat.cat_id and pro.pro_id=$1;`, [productos[i].pro_id])
+
+            //calculo de stock
+            let total = 0
+            const ajuste_stock = await ajustesStock(productos[i].pro_id);
+            if (ajuste_stock.sum != null)
+                total += parseInt(ajuste_stock.sum)
+
+            const facturas_stock = await facturasStock(productos[i].pro_id)
+            if (facturas_stock != undefined)
+                total -= facturas_stock
+
+            const compras_stock = await comprasStock(productos[i].pro_id)
+            if (compras_stock != undefined)
+                total += compras_stock
+
+            productos[i].pro_stock = total
+            productos[i].pro_categoria = categoria
+            response.push(productos[i])
+        }
+        res.json(response)
+    } catch (error) {
+        console.log(error.message)
+        res.json({ message: error.message })
+    }
+}
+
 const getProductos = async (req, res) => {
     try {
         let response = []
@@ -62,6 +120,10 @@ const getProductos = async (req, res) => {
             const facturas_stock = await facturasStock(productos[i].pro_id)
             if (facturas_stock != undefined)
                 total -= facturas_stock
+
+            const compras_stock = await comprasStock(productos[i].pro_id)
+            if (compras_stock != undefined)
+                total += compras_stock
 
             productos[i].pro_stock = total
             productos[i].pro_categoria = categoria
@@ -91,6 +153,11 @@ const getProductosById = async (req, res) => {
         const facturas_stock = await facturasStock(response.pro_id)
         if (facturas_stock != undefined)
             total -= facturas_stock
+
+        const compras_stock = await comprasStock(response.pro_id)
+        if (compras_stock != undefined)
+            total += compras_stock
+
 
         response.pro_stock = total
         response.pro_categoria = categoria
@@ -182,6 +249,7 @@ const deleteProducto = async (req, res) => {
 }
 
 module.exports = {
+    getAllProductos,
     getProductos,
     getProductosById,
     getProductosByName,
