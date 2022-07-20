@@ -7,8 +7,8 @@ const getAllAjustes = async (req, res) => {
         const ajustes = await db.any(`select * from ajuste order by aju_numero`);
         let response = [];
         for (let i = 0; i < ajustes.length; i++) {
-            let detalleAjuste = await db.any(`select daj.* from ajuste aj, ajuste_detalle daj where aj.aju_numero=daj.aju_numero and 
-                aj.aju_estado=true and daj.aju_det_estado=true and daj.aju_numero=$1`, [ajustes[i].aju_numero]);
+            let detalleAjuste = await db.any(`select daj.* from ajuste aj, ajuste_detalle daj where aj.aju_numero=daj.aju_numero
+             and daj.aju_det_estado=true and daj.aju_numero=$1`, [ajustes[i].aju_numero]);
             ajustes[i].aju_detalle = detalleAjuste
             response.push(ajustes[i])
         }
@@ -170,7 +170,7 @@ const putUpdateAjuste = async (req, res) => {
     const { aju_numero, aju_fecha, aju_descripcion, detalles } = req.body
     try {
         //Insercion del ajuste
-        const ajuste = await db.one(`UPDATE public.ajuste SET   aju_fecha=$1, aju_descripcion=$2, aju_estado=true
+        const ajuste = await db.one(`UPDATE public.ajuste SET aju_fecha=$1, aju_descripcion=$2
             WHERE aju_numero=$3 RETURNING*;`, [aju_fecha, aju_descripcion, aju_numero])
 
         await db.none(`DELETE FROM public.ajuste_detalle WHERE aju_numero=$1;`, [aju_numero])
@@ -191,6 +191,40 @@ const putUpdateAjuste = async (req, res) => {
     }
 }
 
+const deleteAjuste = async (req, res) => {
+    try {
+        const { aju_numero } = req.body
+        const response = await db.one(`UPDATE public.ajuste SET aju_estado=false
+        WHERE aju_numero=$1 RETURNING*;`, [aju_numero])
+        res.json(
+            {
+                message: "Ajuste eliminado con éxito",
+                response
+            }
+        )
+    } catch (error) {
+        console.log(error.message)
+        res.json({ message: error.message })
+    }
+}
+
+const activateAjuste = async (req, res) => {
+    try {
+        const { aju_numero } = req.body
+        const response = await db.one(`UPDATE public.ajuste SET aju_estado=true
+        WHERE aju_numero=$1 RETURNING*;`, [aju_numero])
+        res.json(
+            {
+                message: "Ajuste activado con éxito",
+                response
+            }
+        )
+    } catch (error) {
+        console.log(error.message)
+        res.json({ message: error.message })
+    }
+}
+
 module.exports = {
     getAllAjustes,
     getAjustes,
@@ -201,5 +235,7 @@ module.exports = {
     postCreateAjuste,
     postCreateAjusteDetalle,
     postCreateAjustecompleto,
-    putUpdateAjuste
+    putUpdateAjuste,
+    deleteAjuste,
+    activateAjuste
 }

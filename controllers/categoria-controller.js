@@ -78,7 +78,17 @@ const deleteCat = async (req, res) => {
         console.log(error.message)
         res.json({ message: error.message })
     }
+}
 
+const activateCat = async (req, res) => {
+    try {
+        const { cat_id } = req.body
+        const response = await db.any('UPDATE public.categoria SET cat_estado=true WHERE cat_id=$1 returning*', [cat_id])
+        res.json(response)
+    } catch (error) {
+        console.log(error.message)
+        res.json({ message: error.message })
+    }
 }
 
 module.exports = {
@@ -88,5 +98,6 @@ module.exports = {
     getCategoriaByName,
     postCreateCat,
     putUpdateCat,
-    deleteCat
+    deleteCat,
+    activateCat
 }
