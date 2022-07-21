@@ -48,6 +48,7 @@ const facturasStock = async () => {
         return stocks
     } catch (error) {
         console.log(error);
+        return {}
     }
 }
 
@@ -78,6 +79,7 @@ const comprasStock = async () => {
         return stocks
     } catch (error) {
         console.log(error);
+        return {}
     }
 }
 
@@ -187,7 +189,7 @@ const getProductosById = async (req, res) => {
 
         const pro_id = req.params.pro_id
         const response = await db.one(`select pro_id, pro_nombre, pro_descripcion, pro_iva, pro_costo, pro_pvp, pro_imagen 
-            from producto where pro_id=$1 and pro_estado=true;`, [pro_id])
+            from producto where pro_id=$1;`, [pro_id])
         const categoria = await db.one(`select cat.cat_id, cat.cat_nombre from categoria cat, producto pro 
             where pro.cat_id=cat.cat_id and pro.pro_id=$1;`, [pro_id])
 
