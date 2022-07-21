@@ -79,7 +79,7 @@ const comprasStock = async () => {
         return stocks
     } catch (error) {
         console.log(error);
-        return {}
+        return undefined
     }
 }
 
