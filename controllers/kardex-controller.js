@@ -1,5 +1,5 @@
-const req = require('express/lib/request')
 const { db } = require('../config/connection')
+const fetch = require('node-fetch');
 
 /**
  * Calcula el stock de los ajustes realizados a un producto mediante su id

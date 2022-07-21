@@ -1,5 +1,3 @@
-const { json } = require('express');
-const req = require('express/lib/request');
 const { db } = require('../config/connection')
 const fetch = require('node-fetch');
 
