@@ -37,9 +37,9 @@ const facturasByProd = async (pro_id) => {
                 if (detalle.prod_id == pro_id) {
                     registros.push({
                         tipo: 'Venta',
-                        id: factura.nro_factura,
+                        id: 'VEN-'+factura.nro_factura,
                         fecha: factura.fecha,
-                        descipcion: 'FACT.COMP ' + factura.nro_factura,
+                        descipcion: 'Venta Doc.FACT-' + factura.nro_factura,
                         cantidad: detalle.cantidad
                     })
                 }
@@ -76,7 +76,7 @@ const comprasByProd = async (pro_id) => {
                             tipo: 'Compra',
                             id: factura.fcom_id,
                             fecha: factura.fcom_fecha,
-                            descipcion: 'FACT.VENT ' + factura.fcom_id,
+                            descipcion: 'Compra. Doc.' + factura.fcom_id,
                             cantidad: detalle.dcom_cantidad
                         })
                         break
