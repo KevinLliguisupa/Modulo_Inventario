@@ -225,6 +225,23 @@ const activateAjuste = async (req, res) => {
     }
 }
 
+const cambiarModificable = async (req, res) => {
+    try {
+        const { aju_numero } = req.body
+        const response = await db.any(`UPDATE public.ajuste_detalle SET aju_det_modificable=false
+        WHERE aju_numero=$1 RETURNING*;`, [aju_numero])
+        res.json(
+            {
+                message: "Estado cambiado con éxito",
+                response
+            }
+        )
+    } catch (error) {
+        console.log(error.message)
+        res.json({ message: error.message })
+    }
+}
+
 module.exports = {
     getAllAjustes,
     getAjustes,
@@ -237,5 +254,6 @@ module.exports = {
     postCreateAjustecompleto,
     putUpdateAjuste,
     deleteAjuste,
-    activateAjuste
+    activateAjuste,
+    cambiarModificable
 }

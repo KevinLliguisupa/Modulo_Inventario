@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const { getCategorias, getCategoriaById, getCategoriaByName, putUpdateCat, deleteCat, postCreateCat, getAllCategorias, activateCat } = require('../controllers/categoria-controller')
 const { getProductos, getProductosById, postCreateProducto,putUpdateProducto, deleteProducto, getProductosByName, getAllProductos, activateProducto} = require("../controllers/productos-controller");
-const{ getAjustes, putUpdateAjuste, getAjustesByProd, postCreateAjuste, postCreateAjustecompleto, postCreateAjusteDetalle, getAjusteNumero, getAjustesByProdId, getAjusteByNum, getAllAjustes, deleteAjuste, activateAjuste }=require('../controllers/ajustes-controller');
+const{ getAjustes, putUpdateAjuste, getAjustesByProd, postCreateAjuste, postCreateAjustecompleto, postCreateAjusteDetalle, getAjusteNumero, getAjustesByProdId, getAjusteByNum, getAllAjustes, deleteAjuste, activateAjuste, cambiarModificable }=require('../controllers/ajustes-controller');
 const { getKardexById } = require("../controllers/kardex-controller");
 const router= Router()
 
@@ -36,6 +36,7 @@ router.post("/ajustes/completo/",postCreateAjustecompleto)
 router.put("/ajustes/",putUpdateAjuste)
 router.put("/ajustes/delete/",deleteAjuste)
 router.put("/ajustes/activate/",activateAjuste)
+router.put("/ajustes/modificable/",cambiarModificable)
 
 router.get('/kardex/id/:pro_id',getKardexById)
 module.exports = router
